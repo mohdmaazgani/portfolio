@@ -1,0 +1,145 @@
+/* ================================================================
+   responsive.css — All media queries / breakpoints
+   ================================================================
+   EDIT THIS FILE WHEN:
+   - Something looks broken on mobile or tablet
+   - You want to adjust font sizes at different screen sizes
+   - You want to change how the nav behaves on small screens
+
+   BREAKPOINTS USED:
+   - 1200px  Large desktop overrides (if needed)
+   - 900px   Tablet / small laptop
+   - 600px   Mobile landscape
+   - 400px   Mobile portrait (small phones)
+   ================================================================ */
+
+
+/* ----------------------------------------------------------------
+   TABLET  (≤ 900px)
+   ---------------------------------------------------------------- */
+@media (max-width: 900px) {
+
+  /* --- Sections --- */
+  section {
+    padding: 4rem 2rem;
+  }
+
+  /* --- Navbar --- */
+  .navbar {
+    padding: 1rem 2rem;
+  }
+
+  .navbar__links {
+    gap: 1.2rem;
+  }
+
+  .navbar__link {
+    font-size: 0.82rem;
+  }
+
+  /* --- Hero --- */
+  .hero__name {
+    font-size: 3rem;
+  }
+
+  .hero__typed-wrapper {
+    font-size: 1.1rem;
+  }
+
+  /* --- About --- */
+  .about__grid {
+    grid-template-columns: 1fr;   /* stack text above stats */
+    gap: 2.5rem;
+  }
+
+  /* --- Connect --- */
+  .connect {
+    padding: 4rem 2rem;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   MOBILE LANDSCAPE  (≤ 600px)
+   ---------------------------------------------------------------- */
+@media (max-width: 600px) {
+
+  /* --- Navbar: reduce gap further --- */
+  .navbar {
+    padding: 0.9rem 1.2rem;
+  }
+
+  .navbar__links {
+    gap: 0.8rem;
+  }
+
+  /* --- Hero --- */
+  .hero {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .hero__name {
+    font-size: 2.2rem;
+  }
+
+  .hero__desc {
+    font-size: 0.95rem;
+  }
+
+  .hero__buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .hero__buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* --- About stats: 2 columns still fine --- */
+  .about__stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* --- Skills: single column --- */
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Projects: single column --- */
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Connect: wrap tighter --- */
+  .connect__grid {
+    gap: 1rem;
+  }
+
+  .social-card {
+    padding: 1.5rem 2rem;
+    min-width: 130px;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   MOBILE PORTRAIT  (≤ 400px)
+   ---------------------------------------------------------------- */
+@media (max-width: 400px) {
+
+  .hero__name {
+    font-size: 1.8rem;
+  }
+
+  .navbar__link {
+    font-size: 0.72rem;
+    letter-spacing: 0;
+  }
+
+  /* Stack stat cards to single column on very small screens */
+  .about__stats {
+    grid-template-columns: 1fr;
+  }
+}

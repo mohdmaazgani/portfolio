@@ -1,0 +1,232 @@
+/* ================================================================
+   components.css — Reusable UI components
+   ================================================================
+   EDIT THIS FILE WHEN:
+   - You want to change how a button looks
+   - You want to add a new tag colour
+   - You want to adjust the cursor size / glow
+   - You want to change tag styles
+
+   TABLE OF CONTENTS:
+   1.  Custom Cursor
+   2.  Galaxy Background (canvas + nebulas + shooting stars)
+   3.  Buttons
+   4.  Tags / Badges
+   ================================================================ */
+
+
+/* ----------------------------------------------------------------
+   1. CUSTOM CURSOR
+   ---------------------------------------------------------------- */
+.cursor {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: var(--color-cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, background 0.2s ease;
+  box-shadow:
+    0 0 15px var(--color-cyan),
+    0 0 30px var(--color-cyan);
+}
+
+/* Slightly enlarged ring that trails the cursor */
+.cursor-trail {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--color-cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: calc(var(--z-cursor) - 1);
+  transform: translate(-50%, -50%);
+  transition: left 0.08s linear, top 0.08s linear;
+  opacity: 0.35;
+}
+
+
+/* ----------------------------------------------------------------
+   2. GALAXY BACKGROUND
+   ---------------------------------------------------------------- */
+
+/* Starfield canvas — fills entire viewport, fixed behind everything */
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;        /* sits behind all content */
+  pointer-events: none;
+}
+
+/* Nebula blobs — large blurred colour clouds */
+.nebula {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: -1;
+  animation: nebulaPulse 8s ease-in-out infinite alternate;
+}
+
+.nebula--purple {
+  width: 600px;
+  height: 600px;
+  top: -150px;
+  left: -150px;
+  background: radial-gradient(circle, rgba(180, 0, 255, 0.15) 0%, transparent 70%);
+}
+
+.nebula--cyan {
+  width: 500px;
+  height: 500px;
+  bottom: -100px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(0, 245, 255, 0.12) 0%, transparent 70%);
+  animation-delay: -4s;
+}
+
+.nebula--pink {
+  width: 400px;
+  height: 400px;
+  top: 40%;
+  left: 40%;
+  background: radial-gradient(circle, rgba(255, 0, 110, 0.08) 0%, transparent 70%);
+  animation-delay: -2s;
+}
+
+/* Shooting stars — thin horizontal streaks */
+.shooting-star {
+  position: fixed;
+  width: 120px;
+  height: 1px;
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-cyan),
+    transparent
+  );
+  animation: shoot linear infinite;
+}
+
+/* Each star gets its own top/delay/duration via inline style in index.html */
+
+
+/* ----------------------------------------------------------------
+   3. BUTTONS
+   ---------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-normal),
+              box-shadow var(--transition-normal);
+}
+
+/* Shine sweep effect on hover (works on both button types) */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent);
+  transform: translateX(-100%);
+  transition: transform var(--transition-slow);
+}
+
+.btn:hover::before {
+  transform: translateX(0);
+}
+
+/* --- Filled / Primary button --- */
+.btn--primary {
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-purple));
+  color: #000;
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 0 40px rgba(0, 245, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* --- Outlined button --- */
+.btn--outline {
+  background: transparent;
+  color: var(--color-cyan);
+  border: 1px solid var(--color-cyan);
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.1);
+}
+
+.btn--outline:hover {
+  background: rgba(0, 245, 255, 0.08);
+  box-shadow: 0 0 25px rgba(0, 245, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+
+/* ----------------------------------------------------------------
+   4. TAGS / BADGES
+   To add a new colour, copy any tag-colour block below
+   and create a matching class in index.html / data/projects.js
+   ---------------------------------------------------------------- */
+.tag {
+  display: inline-block;
+  padding: 0.22rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Cyan */
+.tag--cyan {
+  background: rgba(0, 245, 255, 0.1);
+  color: var(--color-cyan);
+  border: 1px solid rgba(0, 245, 255, 0.25);
+}
+
+/* Purple */
+.tag--purple {
+  background: rgba(180, 0, 255, 0.1);
+  color: #d066ff;
+  border: 1px solid rgba(180, 0, 255, 0.25);
+}
+
+/* Pink */
+.tag--pink {
+  background: rgba(255, 0, 110, 0.1);
+  color: #ff77aa;
+  border: 1px solid rgba(255, 0, 110, 0.25);
+}
+
+/* Gold */
+.tag--gold {
+  background: rgba(255, 214, 10, 0.1);
+  color: var(--color-gold);
+  border: 1px solid rgba(255, 214, 10, 0.25);
+}
+
+/* Green  ← add more like this */
+.tag--green {
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+  border: 1px solid rgba(0, 255, 136, 0.25);
+}

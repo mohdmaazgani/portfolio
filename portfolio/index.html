@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!--
+  ================================================================
+  PORTFOLIO — Mohd Maaz Gani
+  FILE: index.html
+
+  FILE STRUCTURE:
+    index.html              ← YOU ARE HERE (page structure only)
+    assets/
+      css/
+        base.css            ← colors, fonts, reset  ★ EDIT COLORS HERE
+        layout.css          ← section layouts, grids
+        components.css      ← buttons, tags, cursor, cards
+        animations.css      ← keyframes, reveal, glitch
+        responsive.css      ← mobile/tablet breakpoints
+      js/
+        cursor.js           ← custom cursor behaviour
+        starfield.js        ← galaxy star canvas
+        typing.js           ← typing effect  ★ EDIT PHRASES HERE
+        scroll.js           ← smooth scroll + active nav + reveal
+        parallax.js         ← nebula mouse parallax
+    data/
+      projects.js           ← ALL PROJECT DATA  ★ ADD PROJECTS HERE
+
+  WHAT TO EDIT IN THIS FILE:
+  - Your name, description, hero buttons (Hero section)
+  - About Me paragraphs and stat cards
+  - Skill names and percentages
+  - Social / connect profile URLs
+  DO NOT add <style> or <script> tags inline here.
+  ================================================================
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohd Maaz Gani | Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Mohd Maaz Gani — MERN Stack Developer, AI/ML Enthusiast, B.Tech CSE Student." />
+
+  <!-- Google Fonts
+       To change fonts: update these links AND the --font-* variables in assets/css/base.css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Stylesheets — ORDER MATTERS, do not rearrange -->
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════
+       GALAXY BACKGROUND
+       ══════════════════════════════════════════════════════════ -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <div class="nebula nebula--purple" aria-hidden="true"></div>
+  <div class="nebula nebula--cyan" aria-hidden="true"></div>
+  <div class="nebula nebula--pink" aria-hidden="true"></div>
+
+  <!-- Shooting stars: adjust top/delay/duration freely -->
+  <div class="shooting-star" style="top:18%; animation-delay:0s;   animation-duration:3.2s;" aria-hidden="true"></div>
+  <div class="shooting-star" style="top:47%; animation-delay:1.6s; animation-duration:4.1s;" aria-hidden="true"></div>
+  <div class="shooting-star" style="top:73%; animation-delay:3.2s; animation-duration:2.8s;" aria-hidden="true"></div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       CUSTOM CURSOR
+       ══════════════════════════════════════════════════════════ -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-trail" id="cursor-trail" aria-hidden="true"></div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVIGATION BAR
+       ══════════════════════════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+
+    <a href="#hero" class="navbar__logo" onclick="scrollToSection('hero', event)">MMG.DEV</a>
+
+    <ul class="navbar__links">
+      <li><a href="#about" class="navbar__link" onclick="scrollToSection('about',    event)">About</a></li>
+      <li><a href="#skills" class="navbar__link" onclick="scrollToSection('skills',   event)">Skills</a></li>
+      <li><a href="#projects" class="navbar__link" onclick="scrollToSection('projects', event)">Projects</a></li>
+      <li><a href="#connect" class="navbar__link" onclick="scrollToSection('connect',  event)">Connect</a></li>
+    </ul>
+
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       HERO SECTION
+       ★ EDIT: name, description, button links
+       ══════════════════════════════════════════════════════════ -->
+  <section id="hero" class="hero">
+
+    <p class="hero__label">✦ Welcome to my universe</p>
+
+    <h1 class="hero__name">Mohd Maaz Gani</h1>
+
+    <!-- Typing phrases are defined in assets/js/typing.js -->
+    <p class="hero__typed-wrapper" aria-live="polite">
+      <span id="typed-text"></span><span id="typed-cursor">|</span>
+    </p>
+
+    <!-- ★ EDIT: your one-liner description -->
+    <p class="hero__desc">
+      Crafting digital experiences at the intersection of code and intelligence.
+      Building full-stack systems, training models, and pushing the limits of what's possible.
+    </p>
+
+    <div class="hero__buttons">
+      <a href="#projects" class="btn btn--primary" onclick="scrollToSection('projects', event)">
+        View Projects
+      </a>
+      <a href="https://github.com/mohdmaazgani" class="btn btn--outline" target="_blank" rel="noopener noreferrer">
+        GitHub ↗
+      </a>
+      <a href="https://linkedin.com/in/mohd-maaz-gani" class="btn btn--outline" target="_blank"
+        rel="noopener noreferrer">
+        LinkedIn ↗
+      </a>
+    </div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       ABOUT SECTION
+       ★ EDIT: bio text, stat numbers/labels
+       ══════════════════════════════════════════════════════════ -->
+  <section id="about" class="about">
+
+    <p class="section-label">// who I am</p>
+    <h2 class="section-title reveal">About Me</h2>
+
+    <div class="about__grid">
+
+      <!-- Bio paragraphs -->
+      <div class="about__text reveal">
+        <p>
+          I'm <strong>Mohd Maaz Gani</strong>, a B.Tech Computer Science Engineering student
+          with a passion for building things that matter. I live at the crossroads of software
+          development and artificial intelligence.
+        </p>
+        <p>
+          As a MERN Stack developer, I architect full-stack web applications from database to
+          deployment. My curiosity doesn't stop there — I dive deep into Python, C++, and C
+          while exploring the vast landscape of AI/ML.
+        </p>
+        <p>
+          Every project is a new universe to explore. I believe great code is like great art
+          — precise, purposeful, and powerful.
+        </p>
+      </div>
+
+      <!-- Stat cards — edit numbers and labels freely -->
+      <div class="about__stats reveal">
+        <div class="stat-card">
+          <div class="stat-card__number">B.Tech</div>
+          <div class="stat-card__label">CSE Student</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">5+</div>
+          <div class="stat-card__label">Languages</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">MERN</div>
+          <div class="stat-card__label">Stack Expert</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">AI/ML</div>
+          <div class="stat-card__label">Enthusiast</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SKILLS SECTION
+       ★ EDIT: skill names and --fill percentages
+       To add a skill  → copy a .skill-item block
+       To add a category → copy an entire .skill-card block
+       ══════════════════════════════════════════════════════════ -->
+  <section id="skills">
+
+    <p class="section-label">// what I wield</p>
+    <h2 class="section-title reveal">Tech Arsenal</h2>
+
+    <div class="skills__grid">
+
+      <!-- Frontend -->
+      <div class="skill-card reveal">
+        <div class="skill-card__heading"><span class="icon">⚡</span> Frontend</div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>React.js</span><span>90%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:90%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>JavaScript</span><span>88%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:88%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>HTML / CSS</span><span>92%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:92%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>TypeScript</span><span>78%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:78%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div class="skill-card reveal">
+        <div class="skill-card__heading"><span class="icon">🛢</span> Backend</div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>Node.js</span><span>85%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:85%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>Express.js</span><span>83%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:83%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>MongoDB</span><span>80%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:80%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>REST APIs</span><span>86%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:86%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="skill-card reveal">
+        <div class="skill-card__heading"><span class="icon">🧠</span> Languages</div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>Python</span><span>85%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:85%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>C++</span><span>80%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:80%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>C</span><span>78%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:78%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>JavaScript</span><span>88%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:88%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI / ML -->
+      <div class="skill-card reveal">
+        <div class="skill-card__heading"><span class="icon">🤖</span> AI / ML</div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>Machine Learning</span><span>75%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:75%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>Deep Learning</span><span>70%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:70%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>Data Analysis</span><span>78%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:78%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__meta"><span>TensorFlow / Keras</span><span>68%</span></div>
+          <div class="skill-item__bar-track">
+            <div class="skill-item__bar-fill" style="--fill:68%"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PROJECTS SECTION
+       ★ DO NOT EDIT THE GRID HERE.
+         Go to data/projects.js to add/edit/remove projects.
+         Cards are injected automatically.
+       ══════════════════════════════════════════════════════════ -->
+  <section id="projects">
+
+    <p class="section-label">// what I've built</p>
+    <h2 class="section-title reveal">Projects</h2>
+
+    <!-- Cards injected here by data/projects.js -->
+    <div class="projects__grid" id="projects-grid"></div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       CONNECT SECTION
+       ★ EDIT: update href URLs to your real profiles
+       To add a new platform:
+         1. Copy an <a class="social-card"> block
+         2. Give it class="social-card social-card--yourplatform"
+         3. Add hover colour in assets/css/layout.css
+       ══════════════════════════════════════════════════════════ -->
+  <section id="connect" class="connect">
+
+    <p class="section-label reveal">// find me in the cosmos</p>
+    <h2 class="section-title reveal" style="display:block; text-align:center;">Let's Connect</h2>
+
+    <p class="connect__desc reveal">
+      Have a project idea or want to collaborate?
+      I'm always open to new challenges and opportunities.
+    </p>
+
+    <div class="connect__grid reveal">
+
+      <a href="https://github.com/mohdmaazgani" class="social-card social-card--github" target="_blank"
+        rel="noopener noreferrer" aria-label="GitHub profile">
+        <span class="social-card__icon">🐙</span>
+        <span class="social-card__label">GitHub</span>
+      </a>
+
+      <a href="https://linkedin.com/in/mohd-maaz-gani" class="social-card social-card--linkedin" target="_blank"
+        rel="noopener noreferrer" aria-label="LinkedIn profile">
+        <span class="social-card__icon">💼</span>
+        <span class="social-card__label">LinkedIn</span>
+      </a>
+
+      <a href="https://leetcode.com/mohdmaazgani" class="social-card social-card--leetcode" target="_blank"
+        rel="noopener noreferrer" aria-label="LeetCode profile">
+        <span class="social-card__icon">⚡</span>
+        <span class="social-card__label">LeetCode</span>
+      </a>
+
+      <a href="mailto:mohdmaazgani@gmail.com" class="social-card social-card--email" aria-label="Send email">
+        <span class="social-card__icon">📡</span>
+        <span class="social-card__label">Email</span>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+       ★ EDIT: your name and year
+       ══════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <p>Designed &amp; Built by <strong>Mohd Maaz Gani</strong> · 2026 · Made with love and passion &amp; Code</p>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCRIPTS — load order matters, do not rearrange
+       ══════════════════════════════════════════════════════════ -->
+  <script src="assets/js/scroll.js"></script>
+  <script src="assets/js/cursor.js"></script>
+  <script src="assets/js/starfield.js"></script>
+  <script src="assets/js/parallax.js"></script>
+  <script src="assets/js/typing.js"></script>
+  <script src="data/projects.js"></script>
+
+</body>
+
+</html>
