@@ -11,52 +11,50 @@
    5. Google Fonts Import note
    ================================================================ */
 
-
 /* ----------------------------------------------------------------
    1. CSS VARIABLES
    Change any value here and it updates everywhere on the site.
    ---------------------------------------------------------------- */
 :root {
   /* --- Color Palette --- */
-  --color-cyan:       #00f5ff;   /* primary accent  — nav glow, skill bars, links */
-  --color-purple:     #b400ff;   /* secondary accent — gradients, tags            */
-  --color-pink:       #ff006e;   /* tertiary accent  — email hover, tags          */
-  --color-gold:       #ffd60a;   /* highlight        — leetcode, gold tags        */
-  --color-bg:         #030014;   /* page background                               */
-  --color-card:       rgba(255, 255, 255, 0.04);   /* card background             */
-  --color-border:     rgba(0, 245, 255, 0.15);     /* card / nav borders          */
-  --color-text:       #e0e0ff;   /* main body text                                */
-  --color-text-muted: #667799;   /* secondary / description text                  */
-  --color-text-dim:   #556688;   /* labels, section-sub text                      */
+  --color-cyan: #00f5ff; /* primary accent  — nav glow, skill bars, links */
+  --color-purple: #b400ff; /* secondary accent — gradients, tags            */
+  --color-pink: #ff006e; /* tertiary accent  — email hover, tags          */
+  --color-gold: #ffd60a; /* highlight        — leetcode, gold tags        */
+  --color-bg: #030014; /* page background                               */
+  --color-card: rgba(255, 255, 255, 0.04); /* card background             */
+  --color-border: rgba(0, 245, 255, 0.15); /* card / nav borders          */
+  --color-text: #f3f3f7; /* main body text                                */
+  --color-text-muted: #f4f5f8; /* secondary / description text                  */
+  --color-text-dim: #ecf0f9; /* labels, section-sub text                      */
 
   /* --- Typography --- */
-  --font-display: 'Orbitron', monospace;    /* headings, logo, numbers   */
-  --font-body:    'Rajdhani', sans-serif;   /* body text, nav links      */
+  --font-display: "Orbitron", monospace; /* headings, logo, numbers   */
+  --font-body: "Rajdhani", sans-serif; /* body text, nav links      */
 
   /* --- Spacing Scale --- */
-  --space-xs:   0.5rem;
-  --space-sm:   1rem;
-  --space-md:   2rem;
-  --space-lg:   4rem;
-  --space-xl:   6rem;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
 
   /* --- Border Radius --- */
-  --radius-sm:  4px;
-  --radius-md:  8px;
-  --radius-lg:  12px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
 
   /* --- Transitions --- */
-  --transition-fast:   0.2s ease;
+  --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
-  --transition-slow:   0.4s ease;
+  --transition-slow: 0.4s ease;
 
   /* --- Z-Index Layers --- */
   --z-background: 0;
-  --z-content:    1;
-  --z-nav:        100;
-  --z-cursor:     9999;
+  --z-content: 1;
+  --z-nav: 100;
+  --z-cursor: 9999;
 }
-
 
 /* ----------------------------------------------------------------
    2. RESET
@@ -86,7 +84,6 @@ a {
   text-decoration: none;
 }
 
-
 /* ----------------------------------------------------------------
    3. BASE BODY
    ---------------------------------------------------------------- */
@@ -100,7 +97,6 @@ body {
   cursor: none; /* replaced by custom cursor in cursor.js */
 }
 
-
 /* ----------------------------------------------------------------
    4. CUSTOM SCROLLBAR
    ---------------------------------------------------------------- */
@@ -113,10 +109,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    var(--color-cyan),
-    var(--color-purple)
-  );
+  background: linear-gradient(180deg, var(--color-cyan), var(--color-purple));
   border-radius: 3px;
 }

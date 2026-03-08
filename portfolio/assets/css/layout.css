@@ -209,7 +209,7 @@ section {
 }
 
 .about__text p {
-  color: #8899bb;
+  color: #dae5fb;
   line-height: 1.9;
   font-size: 1.05rem;
   margin-bottom: 1rem;
@@ -576,7 +576,7 @@ section {
   text-align: center;
   padding: var(--space-md);
   font-size: 0.82rem;
-  color: #334455;
+  color: #cde4fc;
   border-top: 1px solid rgba(255, 255, 255, 0.04);
   position: relative;
   z-index: var(--z-content);
