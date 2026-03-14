@@ -63,10 +63,6 @@
        ══════════════════════════════════════════════════════════ -->
   <canvas id="starfield" aria-hidden="true"></canvas>
 
-  <div class="nebula nebula--purple" aria-hidden="true"></div>
-  <div class="nebula nebula--cyan" aria-hidden="true"></div>
-  <div class="nebula nebula--pink" aria-hidden="true"></div>
-
   <!-- Shooting stars: adjust top/delay/duration freely -->
   <div class="shooting-star" style="top:18%; animation-delay:0s;   animation-duration:3.2s;" aria-hidden="true"></div>
   <div class="shooting-star" style="top:47%; animation-delay:1.6s; animation-duration:4.1s;" aria-hidden="true"></div>
@@ -89,6 +85,7 @@
 
     <ul class="navbar__links">
       <li><a href="#about" class="navbar__link" onclick="scrollToSection('about',    event)">About</a></li>
+      <li><a href="#experience" class="navbar__link" onclick="scrollToSection('experience', event)">Experience</a></li>
       <li><a href="#skills" class="navbar__link" onclick="scrollToSection('skills',   event)">Skills</a></li>
       <li><a href="#projects" class="navbar__link" onclick="scrollToSection('projects', event)">Projects</a></li>
       <li><a href="#connect" class="navbar__link" onclick="scrollToSection('connect',  event)">Connect</a></li>
@@ -184,6 +181,90 @@
 
     </div>
   </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+     EXPERIENCE SECTION
+     ★ EDIT: update roles, companies, dates, bullet points
+     ══════════════════════════════════════════════════════════ -->
+  <section id="experience">
+
+    <p class="section-label">// what I have done so far</p>
+    <h2 class="section-title reveal">Work Experience</h2>
+
+    <div class="timeline">
+
+      <!-- EXP 01 — left -->
+      <div class="timeline__item reveal">
+        <div class="timeline__dot"><i class="fa-solid fa-robot"></i></div>
+        <div class="timeline__card">
+          <div class="timeline__date">April 2024 — Present</div>
+          <h3 class="timeline__role">Generative AI Developer</h3>
+          <p class="timeline__company">
+            <i class="fa-solid fa-building"></i> Outlier.ai &nbsp;·&nbsp;
+            <i class="fa-solid fa-wifi"></i> Remote
+          </p>
+          <ul class="timeline__points">
+            <li>Developing and fine-tuning Generative AI models for automation, content generation and analytics.</li>
+            <li>Skilled in LLMs, prompt engineering, and deploying AI-driven solutions with cross-functional teams.</li>
+            <li>Contributing to research on data pre-processing and model evaluation for scalable AI systems.</li>
+          </ul>
+          <div class="timeline__tags">
+            <span class="tag tag--cyan">LLMs</span>
+            <span class="tag tag--purple">Prompt Engineering</span>
+            <span class="tag tag--gold">Generative AI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXP 02 — right -->
+      <div class="timeline__item timeline__item--right reveal">
+        <div class="timeline__dot"><i class="fa-solid fa-code"></i></div>
+        <div class="timeline__card">
+          <div class="timeline__date">Oct 2025 — Nov 2025</div>
+          <h3 class="timeline__role">AI &amp; Prompt Engineering Intern</h3>
+          <p class="timeline__company">
+            <i class="fa-solid fa-building"></i> Vault of Codes &nbsp;·&nbsp;
+            <i class="fa-solid fa-wifi"></i> Remote
+          </p>
+          <ul class="timeline__points">
+            <li>Designed and optimized effective prompts for AI models with solid understanding of LLMs.</li>
+            <li>Implemented prompt-based solutions for real-world use cases across two minor projects.</li>
+            <li>Strengthened problem-solving, analytical thinking and idea-pitching skills.</li>
+          </ul>
+          <div class="timeline__tags">
+            <span class="tag tag--cyan">AI</span>
+            <span class="tag tag--purple">Prompt Engineering</span>
+            <span class="tag tag--pink">NLP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXP 03 — left -->
+      <div class="timeline__item reveal">
+        <div class="timeline__dot"><i class="fa-solid fa-pen-nib"></i></div>
+        <div class="timeline__card">
+          <div class="timeline__date">Feb 2024 — Mar 2024</div>
+          <h3 class="timeline__role">Content Writing Intern</h3>
+          <p class="timeline__company">
+            <i class="fa-solid fa-building"></i> Team Everest NGO &nbsp;·&nbsp;
+            <i class="fa-solid fa-location-dot"></i> Chennai, Tamil Nadu
+          </p>
+          <ul class="timeline__points">
+            <li>Created engaging content for website, social media and newsletters boosting audience engagement.</li>
+            <li>Conducted research, drafted articles and collaborated on communication strategies.</li>
+            <li>Enhanced skills in impactful writing and content development for social initiatives.</li>
+          </ul>
+          <div class="timeline__tags">
+            <span class="tag tag--gold">Content Writing</span>
+            <span class="tag tag--cyan">Social Media</span>
+            <span class="tag tag--pink">NGO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
 
   <!-- ══════════════════════════════════════════════════════════

@@ -15,14 +15,19 @@
    - Add a new section to nav  →  add its id to NAV_SECTION_IDS
    ================================================================ */
 
-const NAV_EXTRA_OFFSET = 24;   // extra px gap below navbar when scrolling to section
+const NAV_EXTRA_OFFSET = 24; // extra px gap below navbar when scrolling to section
 const REVEAL_THRESHOLD = 0.12; // how much of element must be visible to trigger reveal
 
 /* ── Section IDs that correspond to nav links ─────────────────
    Keep this in sync with the href values in your navbar links.
    ─────────────────────────────────────────────────────────────── */
-const NAV_SECTION_IDS = ['about', 'skills', 'projects', 'connect'];
-
+const NAV_SECTION_IDS = [
+  "about",
+  "experience",
+  "skills",
+  "projects",
+  "connect",
+];
 
 /* ----------------------------------------------------------------
    1. SMOOTH SCROLL TO SECTION
@@ -31,35 +36,34 @@ const NAV_SECTION_IDS = ['about', 'skills', 'projects', 'connect'];
 function scrollToSection(sectionId, event) {
   if (event) event.preventDefault();
 
-  const target  = document.getElementById(sectionId);
-  const navbar  = document.querySelector('.navbar');
+  const target = document.getElementById(sectionId);
+  const navbar = document.querySelector(".navbar");
 
   if (!target || !navbar) return;
 
   const navbarHeight = navbar.offsetHeight;
-  const targetTop    = target.getBoundingClientRect().top + window.pageYOffset;
-  const scrollTo     = targetTop - navbarHeight - NAV_EXTRA_OFFSET;
+  const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+  const scrollTo = targetTop - navbarHeight - NAV_EXTRA_OFFSET;
 
-  window.scrollTo({ top: scrollTo, behavior: 'smooth' });
+  window.scrollTo({ top: scrollTo, behavior: "smooth" });
 }
 
 // Expose globally so inline onclick attributes can call it
 window.scrollToSection = scrollToSection;
-
 
 /* ----------------------------------------------------------------
    2. ACTIVE NAV LINK ON SCROLL
    Adds .is-active to whichever nav link matches the current section.
    ---------------------------------------------------------------- */
 (function initActiveNav() {
-  const navLinks = document.querySelectorAll('.navbar__link');
-  const navbar   = document.querySelector('.navbar');
+  const navLinks = document.querySelectorAll(".navbar__link");
+  const navbar = document.querySelector(".navbar");
 
   if (!navLinks.length || !navbar) return;
 
   function updateActiveLink() {
     const navHeight = navbar.offsetHeight;
-    let currentId   = '';
+    let currentId = "";
 
     NAV_SECTION_IDS.forEach((id) => {
       const section = document.getElementById(id);
@@ -72,15 +76,14 @@ window.scrollToSection = scrollToSection;
     });
 
     navLinks.forEach((link) => {
-      const href = link.getAttribute('href'); // e.g. "#skills"
-      link.classList.toggle('is-active', href === '#' + currentId);
+      const href = link.getAttribute("href"); // e.g. "#skills"
+      link.classList.toggle("is-active", href === "#" + currentId);
     });
   }
 
-  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  window.addEventListener("scroll", updateActiveLink, { passive: true });
   updateActiveLink(); // run once on page load
 })();
-
 
 /* ----------------------------------------------------------------
    3. SCROLL REVEAL
@@ -88,7 +91,7 @@ window.scrollToSection = scrollToSection;
    it gets the .is-visible class (CSS handles the fade-up).
    ---------------------------------------------------------------- */
 (function initScrollReveal() {
-  const revealEls = document.querySelectorAll('.reveal');
+  const revealEls = document.querySelectorAll(".reveal");
   if (!revealEls.length) return;
 
   const observer = new IntersectionObserver(
@@ -96,21 +99,21 @@ window.scrollToSection = scrollToSection;
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
 
-        entry.target.classList.add('is-visible');
+        entry.target.classList.add("is-visible");
 
         /* ── 4. Also trigger skill bar animations ─────────────
            Any .skill-item__bar-fill inside a revealed element
            gets .is-animated which triggers its CSS fill transition.
            ─────────────────────────────────────────────────────── */
         entry.target
-          .querySelectorAll('.skill-item__bar-fill')
-          .forEach((bar) => bar.classList.add('is-animated'));
+          .querySelectorAll(".skill-item__bar-fill")
+          .forEach((bar) => bar.classList.add("is-animated"));
 
         // Stop observing once revealed (performance)
         observer.unobserve(entry.target);
       });
     },
-    { threshold: REVEAL_THRESHOLD }
+    { threshold: REVEAL_THRESHOLD },
   );
 
   revealEls.forEach((el) => observer.observe(el));

@@ -21,9 +21,9 @@
   --color-purple: #b400ff; /* secondary accent — gradients, tags            */
   --color-pink: #ff006e; /* tertiary accent  — email hover, tags          */
   --color-gold: #ffd60a; /* highlight        — leetcode, gold tags        */
-  --color-bg: #030014; /* page background                               */
+  --color-bg: #000000; /* page background                               */
   --color-card: rgba(255, 255, 255, 0.04); /* card background             */
-  --color-border: rgba(0, 245, 255, 0.15); /* card / nav borders          */
+  --color-border: rgb(0, 0, 0); /* card / nav borders          */
   --color-text: #f3f3f7; /* main body text                                */
   --color-text-muted: #f4f5f8; /* secondary / description text                  */
   --color-text-dim: #ecf0f9; /* labels, section-sub text                      */
