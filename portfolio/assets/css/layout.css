@@ -547,14 +547,14 @@ section {
    ──────────────────────────────────────────────────────────── */
 .social-card--github:hover {
   border-color: #0a8318;
-  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(184, 236, 175, 0.1);
   color: #0a8318;
 }
 
 .social-card--linkedin:hover {
-  border-color: #0a66c2;
-  box-shadow: 0 20px 40px rgba(10, 102, 194, 0.3);
-  color: #0a66c2;
+  border-color: #288ef4;
+  box-shadow: 0 20px 40px rgba(174, 213, 252, 0.3);
+  color: #288ef4;
 }
 
 .social-card--leetcode:hover {
