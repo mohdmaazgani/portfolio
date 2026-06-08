@@ -13,12 +13,10 @@
    - 400px   Mobile portrait (small phones)
    ================================================================ */
 
-
 /* ----------------------------------------------------------------
    TABLET  (≤ 900px)
    ---------------------------------------------------------------- */
 @media (max-width: 900px) {
-
   /* --- Sections --- */
   section {
     padding: 4rem 2rem;
@@ -48,7 +46,7 @@
 
   /* --- About --- */
   .about__grid {
-    grid-template-columns: 1fr;   /* stack text above stats */
+    grid-template-columns: 1fr; /* stack text above stats */
     gap: 2.5rem;
   }
 
@@ -58,19 +56,42 @@
   }
 }
 
-
 /* ----------------------------------------------------------------
    MOBILE LANDSCAPE  (≤ 600px)
    ---------------------------------------------------------------- */
 @media (max-width: 600px) {
+  /* --- Hide custom cursor on touch devices --- */
+  .cursor,
+  .cursor-trail {
+    display: none;
+  }
 
-  /* --- Navbar: reduce gap further --- */
+  body {
+    cursor: auto;
+  }
+
+  /* --- Navbar --- */
   .navbar {
-    padding: 0.9rem 1.2rem;
+    padding: 0.8rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .navbar__logo {
+    font-size: 0.9rem;
   }
 
   .navbar__links {
-    gap: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .navbar__link {
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
   }
 
   /* --- Hero --- */
@@ -97,7 +118,7 @@
     text-align: center;
   }
 
-  /* --- About stats: 2 columns still fine --- */
+  /* --- About stats: 2 columns --- */
   .about__stats {
     grid-template-columns: 1fr 1fr;
   }
@@ -112,7 +133,7 @@
     grid-template-columns: 1fr;
   }
 
-  /* --- Connect: wrap tighter --- */
+  /* --- Connect --- */
   .connect__grid {
     gap: 1rem;
   }
@@ -123,23 +144,47 @@
   }
 }
 
-
 /* ----------------------------------------------------------------
    MOBILE PORTRAIT  (≤ 400px)
    ---------------------------------------------------------------- */
 @media (max-width: 400px) {
-
   .hero__name {
     font-size: 1.8rem;
   }
 
+  .navbar {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .navbar__logo {
+    font-size: 0.8rem;
+  }
+
   .navbar__link {
-    font-size: 0.72rem;
+    font-size: 0.6rem;
     letter-spacing: 0;
   }
 
-  /* Stack stat cards to single column on very small screens */
+  .navbar__links {
+    gap: 0.4rem;
+  }
+
+  /* Stack stat cards to single column */
   .about__stats {
     grid-template-columns: 1fr;
+  }
+
+  /* Smaller social cards */
+  .social-card {
+    padding: 1.2rem 1.5rem;
+    min-width: 110px;
+  }
+
+  .social-card__icon {
+    font-size: 1.8rem;
+  }
+
+  .social-card__label {
+    font-size: 0.65rem;
   }
 }
